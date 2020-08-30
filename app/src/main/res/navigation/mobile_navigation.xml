@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/destination_home">
+
+    <fragment
+        android:id="@+id/destination_home"
+        android:name="com.gahlot.navigationcomponentsample.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/destination_camera"
+        android:name="com.gahlot.navigationcomponentsample.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" >
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/destination_photos" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_photos"
+        android:name="com.gahlot.navigationcomponentsample.PhotosFragment"
+        android:label="fragment_photos"
+        tools:layout="@layout/fragment_photos" >
+        <argument
+            android:name="numOfPhotos"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/destination_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_settings"
+        android:name="com.gahlot.navigationcomponentsample.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
